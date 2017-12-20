@@ -42,7 +42,14 @@ volatile ngx_str_t       ngx_cached_syslog_time;
 static ngx_int_t         cached_gmtoff;
 #endif
 
+/*
+ * 每次更新时间，对应slots的时间都会更新
+ */
+
+/* 从1970/1/1到现在的秒数 */
 static ngx_time_t        cached_time[NGX_TIME_SLOTS];
+
+/* 下面是cached_time 的格式化表示 */
 static u_char            cached_err_log_time[NGX_TIME_SLOTS]
                                     [sizeof("1970/09/28 12:00:00")];
 static u_char            cached_http_time[NGX_TIME_SLOTS]
@@ -114,6 +121,7 @@ ngx_time_update(void)
     tp->sec = sec;
     tp->msec = msec;
 
+    /* todo: 为什么不调用库函数 */
     ngx_gmtime(sec, &gmt);
 
 

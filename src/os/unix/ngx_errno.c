@@ -42,6 +42,9 @@ ngx_strerror(ngx_err_t err, u_char *errstr, size_t size)
 }
 
 
+/* 为ngx_sys_errlist分配内存，ngx_sys_errlist是个数组，
+ * 每项表示index对应的错误码的字串表示
+ */
 ngx_int_t
 ngx_strerror_init(void)
 {

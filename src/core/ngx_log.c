@@ -255,6 +255,13 @@ ngx_log_abort(ngx_err_t err, const char *fmt, ...)
 }
 
 
+/* print error msg to stdout, output format:
+"nginx: "
+"your format string"
+"(errno: system error string)"
+"\n"
+
+*/
 void ngx_cdecl
 ngx_log_stderr(ngx_err_t err, const char *fmt, ...)
 {
