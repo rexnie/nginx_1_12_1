@@ -1,0 +1,3 @@
+[submodule "echo-nginx-module"]
+	path = echo-nginx-module
+	url = ./echo-nginx-module/

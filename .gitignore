@@ -1,0 +1,5 @@
+*.out
+mk_ctags.sh
+objs
+tags
+_exclude_tmp_file
